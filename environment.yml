@@ -1,0 +1,11 @@
+name: poster-template
+channels:
+- conda-forge
+dependencies:
+- python
+- pip
+- pip:
+  - ipykernel
+  - numpy
+  - matplotlib
+  - astropy
