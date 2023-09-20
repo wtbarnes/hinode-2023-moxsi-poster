@@ -1,0 +1,10 @@
+root_dir: data
+log_t_left_edge: 5.5
+log_t_right_edge: 7.5
+delta_log_t: 0.1
+spectral_table: "sun_coronal_1992_feldman_ext_all"
+roll_angle: 90
+dispersion_angle: 0
+obstime: "2020-11-09T18:00:00"
+integration_time: 3600
+exposure_time: 60

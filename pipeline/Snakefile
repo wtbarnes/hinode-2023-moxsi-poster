@@ -1,0 +1,41 @@
+import pathlib
+
+configfile: "config.yml"
+
+
+# Observed full-disk pipeline
+root_dir = pathlib.Path(config['root_dir']) / f'{config["obstime"]}_{config["spectral_table"]}'
+
+rule query_data:
+    output:
+        directory(root_dir / 'AIA'),
+        directory(root_dir / 'XRT')
+    script:
+        "download_data.py"
+
+#rule prep_data:
+
+#rule invert_dem:
+
+rule compute_spectral_cube:
+    input:
+        root_dir / 'AIA',
+        root_dir / 'XRT'
+    output:
+        root_dir / 'spectral_cube.fits'
+    script:
+        "compute_spectral_cube.py"
+
+rule compute_detector_image:
+    input:
+        root_dir / 'spectral_cube.fits'
+    output:
+        root_dir / '{channel_type}' / '{channel_name}-order{spectral_order}.fits'
+    params:
+        channel_type=lambda wildcards: wildcards.channel_type,
+        channel_name=lambda wildcards: wildcards.channel_name,
+        spectral_order=lambda wildcards: int(wildcards.spectral_order)
+    script:
+        "project_spectral_cube.py"
+
+# Simulated AR pipeline
