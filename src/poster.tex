@@ -9,8 +9,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-% Lengths are in centimeters
-\usepackage[size=custom,width=76.2,height=121.92,scale=1.0]{beamerposter}
+\usepackage[size=custom,width=84.1,height=152.4,orientation=portrait,scale=1.0]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{wtbarnes}
 \usepackage{graphicx}
@@ -33,39 +32,46 @@
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\sepwidth}{0.0167\paperwidth}
+\setlength{\sepwidth}{0.0333\paperwidth}
 \setlength{\colwidth}{0.45\paperwidth}
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 
 % ====================
+% SI unit declarations
+% ====================
+\DeclareSIUnit[number-unit-product={}]\pixel{pixel}
+
+% ====================
 % Title
 % ====================
-\title{A Title of a Poster Presentation About Really Interesting Science}
+\title{Constraining Very Hot Active Region Plasma through Slitless Spectroscopy with MOXSI}
 \author{
   W. T. Barnes \inst{1}\textsuperscript{,}\inst{2} \and
-  A. B. Contributor \inst{3} \and
-  C. D. Collaborator \inst{4}
+  A. Y. Shih \inst{2} \and
+  J. D. Parker \inst{2} \and
+  A. Caspi \inst{3} \and
+  P. S. Athiray \inst{4} 
 }
 \institute[]{
   \inst{1} Department of Physics, American University \samelineand
   \inst{2} Heliophysics Science Division, NASA Goddard Space Flight Center \and
-  \inst{3} Department of Astronomy, Prestigious University
-  \inst{4} Very Important National Laboratory
+  \inst{3} Southwest Research Institute \samelineand
+  \inst{4} University of Alabama Huntsville  
 }
 
 % ====================
 % Footer (optional)
 % ====================
 \footercontent{
-  \href{https://github.com/wtbarnes/poster-template}{github.com/wtbarnes/poster-template} \hfill
-  Big Science Meeting --- Cool City, USA --- 15--16 October 2030 \hfill
+  \href{https://github.com/wtbarnes/hinode-2023-moxsi-poster}{github.com/wtbarnes/hinode-2023-moxsi-poster} \hfill
+  Hinode-16/IRIS-13 --- Niigata, Japan --- 25--29 September 2023 \hfill
   \href{mailto:wbarnes@american.edu}{wbarnes@american.edu}
 }
 
 % ====================
 % Logo (optional)
 % ====================
-\logoright{\includegraphics[height=8cm]{static/AU_stacked_logo.png}}
+\logoright{\includegraphics[height=9cm]{static/CubIXSS_badge.png}}
 \logoleft{\includegraphics[height=10cm]{static/sunpy_logo_portrait_powered.png}}
 
 % ====================
@@ -80,112 +86,125 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block title}
+  \begin{block}{The ``Smoking Gun'' of Impulsive Heating}
 
-    Some block contents, followed by a diagram, followed by a dummy paragraph.
+    \begin{itemize}
+      \item Constraining \alert{heating frequency} in ARs critical to understanding  energy release in corona \citep{klimchuk_key_2015} 
+      \item Faint, ``very hot'' ($\sim\SI{8}{\mega\kelvin}$) component of the emission measure at $T>T_{\mathrm{peak}}$ in the distribution is an \alert{unambiguous signature of impulsive, low-frequency heating} \citep{cargill_implications_1994,cargill_nanoflare_2004}
+      \item Direct observations of the ``smoking gun'' remain elusive \citep{del_zanna_elemental_2014,warren_systematic_2012}, but \alert{spectral lines in soft x-ray range hold key diagnostics} \citep{athiray_solar_2019}
+      \item \textbf{\alert{Goal:}} Understand observational signatures of impulsive heating in \alert{SXR lines} measured through \alert{slitless spectroscopy with MOXSI} 
+    \end{itemize}
 
     \begin{figure}
       \centering
-      \begin{tikzpicture}[scale=6]
-        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
-        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
-          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
-      \end{tikzpicture}
-      \caption{A figure caption.}
+      \import{figures/}{impulsive_heating_illustration.pgf}
+      \caption{Simulations of high- (\textcolor{orange}{HF}) and low-frequency (\textcolor{blue}{LF}) heating in a \SI{40}{\mega\meter} loop. \textbf{Top left:} Heating rate as a function of time. The total energy input is the same in both cases. \textbf{Bottom left:} Electron temperature (left axis) and density (right axis) as a function of time. \textbf{Right:} Emission measure distribution $\mathrm{EM}(T)$ for both heating scenarios. The annotations denote the dominant physical processes in that temperature range.}
+      \label{fig:ebtel_simulation}
     \end{figure}
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
-    eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
-    lobortis augue, ut lobortis turpis rhoncus sed. Proin feugiat nibh a
-    lacinia dignissim. Proin scelerisque, risus eget tempor fermentum, ex
-    turpis condimentum urna, quis malesuada sapien arcu eu purus. \citep{bradshaw_influence_2013}
-
   \end{block}
 
-  \begin{block}{A block containing a list}
-
-    Nam vulputate nunc felis, non condimentum lacus porta ultrices. Nullam sed
-    sagittis metus. Etiam consectetur gravida urna quis suscipit.
-
-    \begin{itemize}
-      \item \textbf{Mauris tempor} risus nulla, sed ornare
-      \item \textbf{Libero tincidunt} a duis congue vitae
-      \item \textbf{Dui ac pretium} morbi justo neque, ullamcorper
-    \end{itemize}
-
-    Eget augue porta, bibendum venenatis tortor.
-
-  \end{block}
-
-  \begin{alertblock}{A highlighted block}
-
-    This block catches your eye, so \textbf{important stuff} should probably go
-    here.
-
-    Curabitur eu libero vehicula, cursus est fringilla, luctus est. Morbi
-    consectetur mauris quam, at finibus elit auctor ac. Aliquam erat volutpat.
-    Aenean at nisl ut ex ullamcorper eleifend et eu augue. Aenean quis velit
-    tristique odio convallis ultrices a ac odio.
-
-    \begin{itemize}
-      \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
-        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
-      \item \textbf{In euismod erat metus} non ex. Vestibulum luctus augue in
-        mi condimentum, at sollicitudin lorem viverra.
-      \item \textbf{Suspendisse vulputate} mauris vel placerat consectetur.
-        Mauris semper, purus ac hendrerit molestie, elit mi dignissim odio, in
-        suscipit felis sapien vel ex.
-    \end{itemize}
-
-    Aenean tincidunt risus eros, at gravida lorem sagittis vel. Vestibulum ante
-    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
-
-  \end{alertblock}
-
-  \begin{block}{A block containing an enumerated list}
-
-    Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
-    interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
-    ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
-    fermentum. Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor. Nam
-    mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend
-    bibendum nec eu lorem. Vivamus felis velit, volutpat ut facilisis ac,
-    commodo in metus.
-
-    \begin{enumerate}
-      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
-        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
-      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
-        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
-        velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
-      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
-        nulla accumsan, non rhoncus lectus condimentum.
-    \end{enumerate}
-
-  \end{block}
-
-  \begin{block}{PGF Figure from \texttt{matplotlib}}
-    An example block with a figure made from a PGF plot.
-    This makes it easy to keep consistent font sizes between figures and the TeX document.
+  \begin{block}{Observational Constraints in the Soft X-ray Range}
 
     \begin{columns}[c]
-      \begin{column}{0.64\colwidth}
+      \begin{column}{0.666\colwidth}
         \begin{figure}
           \centering
-          \import{figures/}{example_plot.pgf}
-          \caption{This is an example of a plot generated in the PGF format with \texttt{matplotlib}.}
-          \label{fig:example}
-        \end{figure}
+          \import{figures/}{dem_constraint_comparisons.pgf}
+          \caption{Illustration of the ``blind spot'' at $T>\SI{4}{\mega\kelvin}$ with current EUV measurements \citep{winebarger_defining_2012}. \textbf{Top:} EM inversion using MCMC method \citep{kashyap_markov-chain_1998} with only spectral lines that can be measured with \textit{Hinode}/EIS. The true EM is shown in blue and is the low-frequency case shown in Fig. \ref{fig:ebtel_simulation}. Note that for $T>\SI{4}{\mega\kelvin}$, the EM is largely unconstrained. \textbf{Bottom:} Same EM inversion as above, but now including all of the lines shown in Table \ref{tab:line_table}. The inversion now matches the true EM much more closely.}
+          \label{fig:dem_constraint_comparison}
+        \end{figure}    
       \end{column}
-      \begin{column}{0.34\colwidth}
-        Vivamus congue volutpat elit non semper. Praesent molestie nec erat acinterdum.
-        In quis suscipit erat. \textbf{Phasellus mauris felis, molestie ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis fermentum.
-        Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor.
-        Nam mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend bibendum nec eu lorem.
-        Vivamus felis velit, volutpat ut facilisis ac, commodo in metus.
+      \begin{column}{0.333\colwidth}
+        \begin{table}
+          \begin{tabular}{ccc}
+            \toprule
+            Element & Ion & Wavelength \\
+            &  & [$\mathrm{\mathring{A}}$] \\
+            \midrule
+            Si & XIV & 6.180 \\
+            Si & XIII & 6.648 \\
+            Mg & XI & 9.314 \\
+            Fe & XXI & 12.282 \\
+            Fe & XX & 12.827 \\
+            Fe & XIX & 13.525 \\
+            Fe & XVIII & 14.209 \\
+            Fe & XIX & 14.669 \\
+            Fe & XVII & 15.013 \\
+            Fe & XVII & 15.262 \\
+            Fe & XVIII & 16.072 \\
+            Fe & XVII & 16.776 \\
+            Fe & XVII & 17.051 \\
+            Fe & XVII & 17.096 \\
+            O & VIII & 18.967 \\
+            O & VII & 21.601 \\
+            O & VII & 21.804 \\
+            O & VII & 22.098 \\
+            Si & XII & 44.160 \\
+            \bottomrule
+          \end{tabular}
+          \caption{Key diagnostic lines in the SXR range. All of these lines will be observed with MOXSI.}
+          \label{tab:line_table}
+        \end{table}
       \end{column}
     \end{columns}
+
+  \end{block}
+
+  \begin{block}{The Multi-Order X-ray Spectral Imager (MOXSI)}
+
+    % Brief summary of MOXSI/CubIXSS
+    % Plot of wavelength responses for 
+    % Maybe picture of gratings/CAD drawings?
+
+    \begin{columns}[t]
+      \begin{column}{0.4\colwidth}
+        \begin{itemize}
+          \item SXR imaging instrument on \alert{CubIXSS (launching 2024)}
+          \item \alert{Slitless spectrograph} + 4 XRT-like filtergrams
+          \item Spectral coverage from \alert{\SIrange{1}{72}{\angstrom}} (\SIrange{12.4}{0.17}{\kilo\eV}) in many orders
+          \item Spatial plate scale: \SI{7.4}{\arcsecond\per\pixel}
+          \item Spectral plate scale: \SI{72}{\milli\angstrom\per\pixel}
+        \end{itemize}
+        \begin{figure}
+          \centering
+          \includegraphics[width=0.4\colwidth]{static/moxsi-pinhole-layout.png}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.6\colwidth}
+        \begin{figure}
+          \centering
+          \import{figures/}{effective_areas.pgf}
+          \caption{Effective areas as a function of wavelength for the five dominant spectral orders ($\mu$) in the dispersed images and the four filtergrams. The four filtergrams are modeled after the Be-thin, Be-med, Be-thick, and Al-poly channels on XRT.}
+          \label{fig:effective_areas}
+        \end{figure}
+      \end{column}
+    \end{columns}
+
+  \end{block}
+
+  \begin{block}{MOXSI Data: Slitless Spectrogram}
+    
+    Use \alert{observations} combined with \alert{atomic data} and \alert{instrument response} to model MOXSI data products: 
+
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item Download full-disk AIA and XRT data
+        \item Normalize and correct images for degradation
+        \item Reprojection to common WCS \rightarrow $I(x,y,c)$
+        \item DEM inversion \citep{hannah_differential_2012} \rightarrow $\mathrm{EM}(x,y,T)$
+        \item Combine DEM and CHIANTI spectra \rightarrow $S(x,y,\lambda)$
+        \item Multiply by effective area for filter $f$, spectral order $\mu$ \rightarrow $I_f(x,y,\lambda,\mu)$
+        \item Sample $I$ and remap to detector plane \rightarrow $D(x,y)$
+      \end{enumerate}
+    \end{multicols}
+
+    \begin{figure}
+      \centering
+      \import{figures/}{full_disk_dispersed_image.pgf}
+      \caption{\textbf{Top:} Model of MOXSI slitless spectrogram observation for an AR. The bright zeroth order image falls in the middle of the detector and the positive and negative orders appear to the right and left, respectively. The labels denote the locations of a few prominent spectral lines in positive and negative first orders. Note that the Sun is rotated \ang{90} to reduce overlap in the dispersed direction. The units of the image are DN. \textbf{Bottom:} Intensity summed over all rows denoted by the cutout in the top panel. The total intensity is broken down by spectral order as denoted by each color in the legend. Spectral lines, as denoted by the annotations, repeat multiple times across the detector due to the appearance of multiple spectral orders.}
+      \label{fig:full_disk_overlappograms}
+    \end{figure}
 
   \end{block}
 
@@ -195,139 +214,89 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Fusce aliquam magna velit}
-
-    Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
-    vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
-    velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
-    molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
-    posuere.
+  \begin{block}{MOXSI Data: Filtergrams}
 
     \begin{figure}
       \centering
-      \begin{tikzpicture}
-        \begin{axis}[
-            scale only axis,
-            no markers,
-            domain=0:2*pi,
-            samples=100,
-            axis lines=center,
-            axis line style={-},
-            ticks=none]
-          \addplot[red] {sin(deg(x))};
-          \addplot[blue] {cos(deg(x))};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Another figure caption.}
+      \import{figures/}{full_disk_filtergrams.pgf}
+      \caption{Filtergram images for the same observation as shown in Fig. \ref{fig:full_disk_overlappograms}. The four filters used by MOXSI have heritage in the Be-thin, Be-med, Be-thick, and Al-poly filters of \textit{Hinode}/XRT. The effective area for each is shown in Fig. \ref{fig:effective_areas}. The arrow in the leftmost panel denotes the direction of solar north. Note that like the slitless spectrograms, the Sun is rotated \ang{90}. The units of each image are DN.}
+      \label{fig:full_disk_filtergrams}
     \end{figure}
 
   \end{block}
 
-  \begin{block}{Nam cursus consequat egestas}
+  \vspace{-30px}
 
-    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
-    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
-    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
-    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
-    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
-    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
-    sit amet sollicitudin risus tincidunt non.
-
-    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
+  \begin{block}{Multi-stranded Active Region Modeling}
 
     \begin{itemize}
-      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
-        sed est scelerisque, elementum mollis augue iaculis.
-        \begin{itemize}
-          \item In sed est finibus, vulputate
-            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
-            porttitor quis.
-          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
-            tempor tincidunt eu a arcu.
-          \item Donec rhoncus vestibulum erat, quis aliquam leo
-            gravida egestas.
-        \end{itemize}
-      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
-        faucibus purus, sed lobortis justo erat id turpis.
-      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
-        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
+      \item Model \alert{LOS-integrated emission from multiple evolving loops} with \texttt{synthesizAR} package \citep{barnes_understanding_2019}
+      \item Trace $\approx900$ field lines through potential field extrapolation from using \texttt{pfsspy} \citep{stansby_pfsspy_2020}
+      \item \alert{Run two-fluid EBTEL model \citep{klimchuk_highly_2008,barnes_inference_2016} for each field line} for both \textcolor{orange}{HF} and \textcolor{blue}{LF} cases
+      \item Total energy constrained by $B,L$ from extrapolation, events modeled as Poisson process \citep{warren_observation_2020}
     \end{itemize}
 
-  \end{block}
-
-  \begin{exampleblock}{A highlighted block containing some math}
-
-    A different kind of highlighted block.
-
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
-
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
-
-    \heading{A heading inside a block}
-
-    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
-    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
-    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
-    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
-
-    \heading{Another heading inside a block}
-
-    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
-    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
-    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
-    justo. \citep{winebarger_transition_2003}
-
-  \end{exampleblock}
-
-  \begin{block}{Nullam vel erat at velit convallis laoreet}
-
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
-
-    \begin{table}
+    \begin{figure}
       \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
-
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
-
-    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
-    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
-    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
-    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
+      \import{figures/}{fieldlines_ebtel_results.pgf}
+      \caption{\textbf{Left:} Traced field lines overlaid on an AIA \SI{171}{\angstrom} image of the same AR shown in Fig. \ref{fig:full_disk_overlappograms} and \ref{fig:full_disk_filtergrams}. \textbf{Right:} Electron temperature (\textbf{top}) and density (\textbf{bottom}) as a function of time as modeled by EBTEL for every field line from the left panel for the \textcolor{orange}{HF} and \textcolor{blue}{LF} cases. EBTEL models the spatially-averaged coronal density and temperature as a function of time.}
+      \label{fig:fieldlines_ebtel_results}
+    \end{figure}
+    \vspace{-30px}
+    \begin{figure}
+      \centering
+      \import{figures/}{simulated_dem_images.pgf}
+      \caption{True emission measure distribution, $\mathrm{EM}(T)=\int\mathrm{d}h\,n^2$, at a single snapshot in time over the whole AR for the \textcolor{orange}{HF} (\textbf{top}) and \textcolor{blue}{LF} (\textbf{bottom}) in four different temperature bins. The true $\mathrm{EM}(T)$ is computed by summing $n^2$ along the LOS and binned by temperature. This is computed every \SI{1}{\second} over an interval of \SI{1}{\hour}. Note that in the \textcolor{orange}{HF} case, the $\mathrm{EM}$ is narrowly distributed near \SI{4}{\mega\kelvin} while in the \textcolor{blue}{LF} case, the $\mathrm{EM}$ is more broad.}
+      \label{fig:simulated_dem}
+    \end{figure}
 
   \end{block}
+
+  \vspace{-30px}
+
+  \begin{block}{MOXSI Spectra for Different Heating Frequencies}
+
+    \begin{figure}
+      \centering
+      \import{figures/}{simulated_moxsi_data_ar.pgf}
+      \caption{Simulated MOXSI images for the \textcolor{orange}{HF} (\textbf{top}) and \textcolor{blue}{LF} (\textbf{bottom}) cases resulting from sampling spectral cube calculated from each $EM(T)$ cube at a \SI{1}{\second} cadence and summing over \SI{1}{\hour}. The images are in units of DN. \textbf{Bottom:} Intensity summed over all rows from the panels above. Where there are noticeable differences between the \textcolor{orange}{HF} and \textcolor{blue}{LF} spectra, relevant spectral lines are annotated. Note that while the two spectra differ, \alert{discerning how and where the two heating scenarios differ is made difficult by the spatial-spectral overlap and the presence of overlapping spectral orders.}}
+      \label{fig:simulated_moxsi_spectra}
+    \end{figure}
+
+  \end{block}
+
+  \vspace{-30px}
+
+  \begin{block}{Inverting Slitless Spectrogram Data}
+
+    \begin{columns}[t]
+      \begin{column}{0.6\colwidth}
+        \begin{figure}
+          \centering
+          \import{figures/}{inverted_moxsi_dem.pgf}
+          \caption{Comparison of true (dashed) and inverted (solid) $\mathrm{EM}(T)$ for both heating scenarios for two different linear regression inversion methods from \texttt{scikit-learn} \citep{pedregosa_scikit-learn:_2011}: ``Ridge'' (\textbf{left}) and ``ElasticNet'' (\textbf{right}). The inversion is done on the spectra summed in the cross-dispersion direction and the inverted $\mathrm{EM}$ is then averaged in the spatial direction parallel to the dispersed direction.}
+          \label{fig:inverted_moxsi_dem}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.4\colwidth}
+        \begin{itemize}
+          \item Each pixel includes contributions from \alert{many spatial locations} and \alert{multiple spectral orders}
+          \item $\mathrm{EM}$ inversion problem generalizes to $I(p)=\mathrm{EM}(x,T)R(p,x,T)$ \citep{cheung_multi-component_2019}
+          \item Explore multiple linear regression methods: include only $L_2$ regularization (``Ridge''), $L_1$ and $L_2$ regularization (``ElasticNet'')
+          \item \alert{\textbf{Current conclusion:}} Inversion recovers $\mathrm{EM}(T>\SI{4}{\mega\kelvin})$ in \textcolor{blue}{LF} though some present in \textcolor{orange}{HF} case too, $\mathrm{EM}(T<\SI{4}{\mega\kelvin})$ poorly constrained
+          \item \alert{\textbf{Ongoing work:}} Tuning hyperparameters of inversion, expanding heating parameter space, strategies for improving SNR
+        \end{itemize}
+      \end{column}
+    \end{columns}
+
+  \end{block}
+
+  \vspace{-30px}
 
   \begin{block}{References}
-    \scriptsize
-    WTB was supported by NASA.
-    This research used version 5.0.1 of the \texttt{sunpy} open source software package \citep{the_sunpy_community_sunpy_2020}.
-    This research used verion 0.7 of the \texttt{aiapy} open source software package \citep{barnes_aiapy_2020}.
+    \tiny
+    This research used v5.0.1 of the \texttt{sunpy} open source software package \citep{the_sunpy_community_sunpy_2020}.
+    This research used v0.7.3 of the \texttt{aiapy} open source software package \citep{barnes_aiapy_2020}.
     \begin{multicols}{2}
       \bibliographystyle{aasjournal.bst}
       \bibliography{references.bib}
