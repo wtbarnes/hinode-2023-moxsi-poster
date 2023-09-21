@@ -94,7 +94,7 @@
       \item Direct observations of the ``smoking gun'' remain elusive \citep{del_zanna_elemental_2014,warren_systematic_2012}, but \alert{spectral lines in soft x-ray range hold key diagnostics} \citep{athiray_solar_2019}
       \item \textbf{\alert{Goal:}} Understand observational signatures of impulsive heating in \alert{SXR lines} measured through \alert{slitless spectroscopy with MOXSI} 
     \end{itemize}
-
+    \vspace{-30px}
     \begin{figure}
       \centering
       \import{figures/}{impulsive_heating_illustration.pgf}
@@ -111,7 +111,7 @@
         \begin{figure}
           \centering
           \import{figures/}{dem_constraint_comparisons.pgf}
-          \caption{Illustration of the ``blind spot'' at $T>\SI{4}{\mega\kelvin}$ with current EUV measurements \citep{winebarger_defining_2012}. \textbf{Top:} EM inversion using MCMC method \citep{kashyap_markov-chain_1998} with only spectral lines that can be measured with \textit{Hinode}/EIS. The true EM is shown in blue and is the low-frequency case shown in Fig. \ref{fig:ebtel_simulation}. Note that for $T>\SI{4}{\mega\kelvin}$, the EM is largely unconstrained. \textbf{Bottom:} Same EM inversion as above, but now including all of the lines shown in Table \ref{tab:line_table}. The inversion now matches the true EM much more closely.}
+          \caption{Illustration of the ``blind spot'' at $T>\SI{4}{\mega\kelvin}$ with current EUV measurements \citep{winebarger_defining_2012}. \textbf{Top:} EM inversion using MCMC method \citep{kashyap_markov-chain_1998} with only spectral lines that can be measured with \textit{Hinode}/EIS. The dashed lines denote the EM \textit{loci} curves. The true EM is shown in blue and is the low-frequency case shown in Fig. \ref{fig:ebtel_simulation}. Note that for $T>\SI{4}{\mega\kelvin}$, the EM is largely unconstrained. \textbf{Bottom:} Same EM inversion as above, but now including all of the lines shown in Table \ref{tab:line_table}, with the solid lines denoting the \textit{loci} curves for these lines. The inversion now matches the true EM much more closely.}
           \label{fig:dem_constraint_comparison}
         \end{figure}    
       \end{column}
@@ -160,7 +160,7 @@
     \begin{columns}[t]
       \begin{column}{0.4\colwidth}
         \begin{itemize}
-          \item SXR imaging instrument on \alert{CubIXSS (launching 2024)}
+          \item SXR imaging instrument on \alert{CubIXSS (launching mid-2025)}
           \item \alert{Slitless spectrograph} + 4 XRT-like filtergrams
           \item Spectral coverage from \alert{\SIrange{1}{72}{\angstrom}} (\SIrange{12.4}{0.17}{\kilo\eV}) in many orders
           \item Spatial plate scale: \SI{7.4}{\arcsecond\per\pixel}
@@ -193,7 +193,7 @@
         \item Normalize and correct images for degradation
         \item Reprojection to common WCS \rightarrow $I(x,y,c)$
         \item DEM inversion \citep{hannah_differential_2012} \rightarrow $\mathrm{EM}(x,y,T)$
-        \item Combine DEM and CHIANTI spectra \rightarrow $S(x,y,\lambda)$
+        \item Combine DEM with spectra \rightarrow $S(x,y,\lambda)$
         \item Multiply by effective area for filter $f$, spectral order $\mu$ \rightarrow $I_f(x,y,\lambda,\mu)$
         \item Sample $I$ and remap to detector plane \rightarrow $D(x,y)$
       \end{enumerate}
@@ -202,7 +202,7 @@
     \begin{figure}
       \centering
       \import{figures/}{full_disk_dispersed_image.pgf}
-      \caption{\textbf{Top:} Model of MOXSI slitless spectrogram observation for an AR. The bright zeroth order image falls in the middle of the detector and the positive and negative orders appear to the right and left, respectively. The labels denote the locations of a few prominent spectral lines in positive and negative first orders. Note that the Sun is rotated \ang{90} to reduce overlap in the dispersed direction. The units of the image are DN. \textbf{Bottom:} Intensity summed over all rows denoted by the cutout in the top panel. The total intensity is broken down by spectral order as denoted by each color in the legend. Spectral lines, as denoted by the annotations, repeat multiple times across the detector due to the appearance of multiple spectral orders.}
+      \caption{\textbf{Top:} Model of MOXSI slitless spectrogram observation for an AR. The bright 0\textsuperscript{th} order image falls in the middle of the detector and the positive and negative orders appear to the right and left, respectively. The labels denote the locations of a few prominent spectral lines in positive and negative first orders. The blue arrow denotes the direction of solar north. Note that the Sun is rotated $90^\circ$ to reduce overlap in the dispersed direction. \textbf{Bottom:} Intensity summed over all rows denoted by the cutout in the top panel. The total intensity is broken down by spectral order as denoted by each color in the legend. Spectral lines, as denoted by the annotations, repeat multiple times across the detector due to the appearance of multiple spectral orders.}
       \label{fig:full_disk_overlappograms}
     \end{figure}
 
@@ -216,59 +216,60 @@
 
   \begin{block}{MOXSI Data: Filtergrams}
 
+    \vspace{-10pt}
+
     \begin{figure}
       \centering
       \import{figures/}{full_disk_filtergrams.pgf}
-      \caption{Filtergram images for the same observation as shown in Fig. \ref{fig:full_disk_overlappograms}. The four filters used by MOXSI have heritage in the Be-thin, Be-med, Be-thick, and Al-poly filters of \textit{Hinode}/XRT. The effective area for each is shown in Fig. \ref{fig:effective_areas}. The arrow in the leftmost panel denotes the direction of solar north. Note that like the slitless spectrograms, the Sun is rotated \ang{90}. The units of each image are DN.}
+      \caption{Filtergram images for the same observation as shown in Fig. \ref{fig:full_disk_overlappograms}. The four filters used by MOXSI have heritage in the Be-thin, Be-med, Be-thick, and Al-poly filters of \textit{Hinode}/XRT. The effective area for each is shown in Fig. \ref{fig:effective_areas}. The arrow in the leftmost panel denotes the direction of solar north. Note that like the slitless spectrograms, the Sun is rotated $90^\circ$.}
       \label{fig:full_disk_filtergrams}
     \end{figure}
 
   \end{block}
 
-  \vspace{-30px}
+  \vspace{-35px}
 
   \begin{block}{Multi-stranded Active Region Modeling}
 
     \begin{itemize}
       \item Model \alert{LOS-integrated emission from multiple evolving loops} with \texttt{synthesizAR} package \citep{barnes_understanding_2019}
-      \item Trace $\approx900$ field lines through potential field extrapolation from using \texttt{pfsspy} \citep{stansby_pfsspy_2020}
+      \item Trace $\sim900$ field lines through potential field extrapolation using \texttt{pfsspy} \citep{stansby_pfsspy_2020}
       \item \alert{Run two-fluid EBTEL model \citep{klimchuk_highly_2008,barnes_inference_2016} for each field line} for both \textcolor{orange}{HF} and \textcolor{blue}{LF} cases
       \item Total energy constrained by $B,L$ from extrapolation, events modeled as Poisson process \citep{warren_observation_2020}
     \end{itemize}
-
+    \vspace{-30px}
     \begin{figure}
       \centering
       \import{figures/}{fieldlines_ebtel_results.pgf}
       \caption{\textbf{Left:} Traced field lines overlaid on an AIA \SI{171}{\angstrom} image of the same AR shown in Fig. \ref{fig:full_disk_overlappograms} and \ref{fig:full_disk_filtergrams}. \textbf{Right:} Electron temperature (\textbf{top}) and density (\textbf{bottom}) as a function of time as modeled by EBTEL for every field line from the left panel for the \textcolor{orange}{HF} and \textcolor{blue}{LF} cases. EBTEL models the spatially-averaged coronal density and temperature as a function of time.}
       \label{fig:fieldlines_ebtel_results}
     \end{figure}
-    \vspace{-30px}
+    \vspace{-35px}
     \begin{figure}
       \centering
       \import{figures/}{simulated_dem_images.pgf}
-      \caption{True emission measure distribution, $\mathrm{EM}(T)=\int\mathrm{d}h\,n^2$, at a single snapshot in time over the whole AR for the \textcolor{orange}{HF} (\textbf{top}) and \textcolor{blue}{LF} (\textbf{bottom}) in four different temperature bins. The true $\mathrm{EM}(T)$ is computed by summing $n^2$ along the LOS and binned by temperature. This is computed every \SI{1}{\second} over an interval of \SI{1}{\hour}. Note that in the \textcolor{orange}{HF} case, the $\mathrm{EM}$ is narrowly distributed near \SI{4}{\mega\kelvin} while in the \textcolor{blue}{LF} case, the $\mathrm{EM}$ is more broad.}
+      \caption{True emission measure distribution, $\mathrm{EM}(T)=\int\mathrm{d}h\,n^2$, at a single snapshot in time over the whole AR for the \textcolor{orange}{HF} (\textbf{top}) and \textcolor{blue}{LF} (\textbf{bottom}) cases in four different temperature bins. The true $\mathrm{EM}(T)$ is computed by summing $n^2$ along the LOS and binned by temperature. This is computed every \SI{1}{\second} over an interval of \SI{1}{\hour}. Note that in the \textcolor{orange}{HF} case, the $\mathrm{EM}$ is narrowly distributed near \SI{4}{\mega\kelvin} while in the \textcolor{blue}{LF} case, the $\mathrm{EM}$ is more broad.}
       \label{fig:simulated_dem}
     \end{figure}
 
   \end{block}
 
-  \vspace{-30px}
+  \vspace{-35px}
 
   \begin{block}{MOXSI Spectra for Different Heating Frequencies}
 
     \begin{figure}
       \centering
       \import{figures/}{simulated_moxsi_data_ar.pgf}
-      \caption{Simulated MOXSI images for the \textcolor{orange}{HF} (\textbf{top}) and \textcolor{blue}{LF} (\textbf{bottom}) cases resulting from sampling spectral cube calculated from each $EM(T)$ cube at a \SI{1}{\second} cadence and summing over \SI{1}{\hour}. The images are in units of DN. \textbf{Bottom:} Intensity summed over all rows from the panels above. Where there are noticeable differences between the \textcolor{orange}{HF} and \textcolor{blue}{LF} spectra, relevant spectral lines are annotated. Note that while the two spectra differ, \alert{discerning how and where the two heating scenarios differ is made difficult by the spatial-spectral overlap and the presence of overlapping spectral orders.}}
+      \caption{Simulated MOXSI images for the \textcolor{orange}{HF} (\textbf{top}) and \textcolor{blue}{LF} (\textbf{bottom}) cases resulting from sampling a spectral cube calculated from each $\mathrm{EM}(T)$ cube at a \SI{1}{\second} cadence and summing over \SI{1}{\hour}. \textbf{Bottom:} Intensity summed over all rows from the panels above. Where there are noticeable differences between the \textcolor{orange}{HF} and \textcolor{blue}{LF} spectra, relevant spectral lines are annotated. Note that while the two spectra differ, \alert{discerning how and where the two heating scenarios differ is made difficult by the spatial-spectral overlap and the presence of overlapping spectral orders.}}
       \label{fig:simulated_moxsi_spectra}
     \end{figure}
 
   \end{block}
 
-  \vspace{-30px}
+  \vspace{-35px}
 
   \begin{block}{Inverting Slitless Spectrogram Data}
-
     \begin{columns}[t]
       \begin{column}{0.6\colwidth}
         \begin{figure}
@@ -291,12 +292,11 @@
 
   \end{block}
 
-  \vspace{-30px}
+  \vspace{-25px}
 
   \begin{block}{References}
     \tiny
-    This research used v5.0.1 of the \texttt{sunpy} open source software package \citep{the_sunpy_community_sunpy_2020}.
-    This research used v0.7.3 of the \texttt{aiapy} open source software package \citep{barnes_aiapy_2020}.
+    This research used v5.0.1 of the \texttt{sunpy} open source software package \citep{the_sunpy_community_sunpy_2020} and v0.7.3 of the \texttt{aiapy} open source software package \citep{barnes_aiapy_2020}.
     \begin{multicols}{2}
       \bibliographystyle{aasjournal.bst}
       \bibliography{references.bib}
